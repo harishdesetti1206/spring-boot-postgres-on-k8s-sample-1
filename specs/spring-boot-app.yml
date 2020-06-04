@@ -1,10 +1,13 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-boot-postgres-sample
   namespace: default
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-postgres-sample
   template:
     metadata:
       name: spring-boot-postgres-sample
@@ -29,4 +32,4 @@ spec:
               configMapKeyRef:
                 name: hostname-config
                 key: postgres_host
-        image: <your Docker Hub account>/spring-boot-postgres-on-k8s:v1
+        image: harish1206/spring-boot-postgres-on-k8s:v1

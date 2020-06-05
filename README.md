@@ -41,13 +41,23 @@ You can watch this demo along with an introduction to Kubernetes concepts [here]
    ```
    kubectl expose deployment spring-boot-postgres-sample --type=LoadBalancer --port=8080
    ```
+   
 
 1. Get the External IP address of Service, then the app will be accessible at `http://<External IP Address>:8080`
    ```
    kubectl get svc spring-boot-postgres-sample
    ```
    > **Note:** It may take a few minutes for the load balancer to be created
-
+   
+1. or you can expose the application as nodeport
+   ```
+   kubectl expose deployment spring-boot-postgres-sample --type=NodePort --port=8080
+   ```
+1. get the ip of any of the nodes and curl the url with nodeport
+   ```
+   curl http://<IP of any of the node>:NodeportIP 
+   ```
+   > **Note** : To get the ndoe port ip use command "kubectl get svc spring-boot-postgres-sample -o jsonpath="{.spec.ports[*].nodePort}{'\n'}""
 1. Scale your application
    ```
    kubectl scale deployment spring-boot-postgres-sample --replicas=3

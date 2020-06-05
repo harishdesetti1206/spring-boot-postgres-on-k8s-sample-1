@@ -1,0 +1,152 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2020-06-05T03:07:12Z"
+  labels:
+    run: busybox
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:containers:
+          k:{"name":"busybox"}:
+            .: {}
+            f:args: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+    manager: kubectl
+    operation: Update
+    time: "2020-06-05T03:07:12Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.32.0.4"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2020-06-05T03:07:16Z"
+  name: busybox
+  namespace: default
+  resourceVersion: "30073"
+  selfLink: /api/v1/namespaces/default/pods/busybox
+  uid: c8219a1c-e90b-4d9b-a978-81650db03db6
+spec:
+  containers:
+  - args:
+    - /bin/sh
+    - -c
+    - 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done'
+    image: busybox
+    imagePullPolicy: Always
+    name: busybox
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-xdkcz
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: kubenode1
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-xdkcz
+    secret:
+      defaultMode: 420
+      secretName: default-token-xdkcz
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-05T03:07:12Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-05T03:07:16Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-05T03:07:16Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-06-05T03:07:12Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://d1d0a640ffdc493dbc9c94b2faede744252de2c15301ab6e77b49719b431b407
+    image: busybox:latest
+    imageID: docker-pullable://busybox@sha256:95cf004f559831017cdf4628aaf1bb30133677be8702a8c5f2994629f637a209
+    lastState: {}
+    name: busybox
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-06-05T03:07:16Z"
+  hostIP: 192.168.0.19
+  phase: Running
+  podIP: 10.32.0.4
+  podIPs:
+  - ip: 10.32.0.4
+  qosClass: BestEffort
+  startTime: "2020-06-05T03:07:12Z"

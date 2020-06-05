@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: busybox1
+spec:
+  activeDeadlineSeconds: 30
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: busybox
+        name: busybox1
+        resources: {}
+      restartPolicy: Never
+status: {}

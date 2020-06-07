@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: redis
+  name: redis
+spec:
+  containers:
+  - image: redis
+    name: redis
+    resources: {}
+    volumeMounts:
+    - name: emptyvolume-mount
+      mountPath: /data/redis
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: emptyvolume-mount
+    emptyDir: {}
+status: {}
